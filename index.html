@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIP Tanning &amp; Wellness Oxford — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1424;
+  --plate:#12172a;
+  --plate-2:#0d1120;
+  --sun-1:#ffd94a; --sun-2:#ff9a2e; --sun-3:#ff6b2c;
+  --blue-1:#2f7bff; --blue-2:#123fa8;
+  --red-1:#e5342c; --red-2:#8f120e;
+  --yel-1:#ffd831; --yel-2:#f0a500;
+  --blk-1:#2a2d3a; --blk-2:#15161f;
+  --ink:#12213f;
+  --white:#fff;
+  --gold:#ffd94a;
+  --promo:#ff2d55;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:
+    radial-gradient(1300px 520px at 50% -12%, rgba(255,154,46,.28), transparent 62%),
+    radial-gradient(900px 520px at 100% 108%, rgba(47,123,255,.15), transparent 60%),
+    var(--bg);
+  color:var(--white);
+  font-family:'Archivo',sans-serif;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  height:100vh;max-width:none;margin:0 auto;
+  padding:12px 28px 10px;
+  display:grid;grid-template-rows:auto minmax(0,10fr) minmax(0,13fr) auto;gap:12px;
+}
+
+/* ── Header ─────────────────────────────── */
+.head{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.hero-title{
+  font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(20px,2.3vw,34px);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--sun-1);white-space:nowrap;
+  text-shadow:0 0 22px rgba(255,217,74,.45);
+}
+.brand{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+h1{
+  font-family:'Anton',sans-serif;font-weight:400;
+  font-size:clamp(24px,2.6vw,40px);line-height:1;letter-spacing:.02em;text-transform:uppercase;
+  background:linear-gradient(180deg,#fff 0%,var(--sun-1) 45%,var(--sun-3) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 16px rgba(255,154,46,.35));
+  white-space:nowrap;
+}
+.tag{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#9dabd0;white-space:nowrap}
+.head-right{display:flex;align-items:center;gap:10px}
+.promo-banner{
+  display:none;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--promo);white-space:nowrap;
+}
+body.promo .promo-banner{display:block}
+.btn{
+  display:flex;align-items:center;gap:8px;
+  border:2px solid #2a3453;border-radius:999px;
+  padding:6px 14px;background:#161c30;
+  cursor:pointer;user-select:none;transition:border-color .3s, background .3s;white-space:nowrap;
+  font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9dabd0;
+}
+.btn:hover{border-color:#3d4a75}
+.promo-toggle .pill{
+  width:38px;height:20px;border-radius:999px;border:2px solid #2a3453;
+  position:relative;background:var(--bg);transition:border-color .3s;
+}
+.promo-toggle .pill::after{
+  content:"";position:absolute;top:1px;left:1px;width:14px;height:14px;border-radius:50%;
+  background:#9dabd0;transition:transform .3s ease,background .3s;
+}
+body.promo .promo-toggle{border-color:var(--promo);color:var(--promo)}
+body.promo .promo-toggle .pill{border-color:var(--promo)}
+body.promo .promo-toggle .pill::after{transform:translateX(18px);background:var(--promo)}
+body.editing #editBtn{border-color:var(--gold);color:var(--gold);background:rgba(255,217,74,.1)}
+#saveBtn{display:none}
+body.editing #saveBtn{display:flex;border-color:#3ddc84;color:#3ddc84}
+.edit-hint{
+  display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:50;
+  background:rgba(255,217,74,.95);color:var(--ink);font-size:12px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;padding:8px 20px;border-radius:999px;
+  box-shadow:0 6px 20px rgba(0,0,0,.5);
+}
+body.editing .edit-hint{display:block}
+body.editing [contenteditable="true"]{
+  outline:2px dashed rgba(255,217,74,.7);outline-offset:2px;border-radius:4px;cursor:text;min-width:12px;
+}
+body.editing [contenteditable="true"]:hover{outline-color:var(--gold);background:rgba(255,217,74,.08)}
+body.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);background:rgba(255,217,74,.12)}
+
+/* ── HERO: Smart Pay Memberships (dominant) ── */
+.hero{display:flex;flex-direction:column;gap:9px;min-height:0}
+.hero-head{display:flex;align-items:center;gap:14px}
+.hero-head h2{
+  font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(18px,2vw,28px);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--sun-1);white-space:nowrap;
+  text-shadow:0 0 22px rgba(255,217,74,.45);
+}
+.hero-head .thread{flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--sun-2),transparent)}
+.hero-head .note{font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b7c2e0;white-space:nowrap}
+
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr 1.14fr;gap:16px;flex:1;min-height:0}
+.card{
+  position:relative;border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;min-height:0;
+  box-shadow:0 12px 30px rgba(0,0,0,.5);
+}
+.card.sunset{background:linear-gradient(180deg,var(--sun-1),var(--sun-2) 52%,var(--sun-3))}
+.card.bluec{background:linear-gradient(180deg,var(--blue-1),var(--blue-2))}
+.card.mix{background:linear-gradient(155deg,var(--sun-2),var(--sun-3) 42%,var(--blue-2))}
+.card .photo{
+  flex:0 0 46%;min-height:0;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;gap:1.5%;padding:6px 8px;flex-wrap:wrap;
+}
+.card .photo::before{
+  content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:88%;aspect-ratio:1.5;border-radius:50%;
+  background:radial-gradient(ellipse, rgba(255,255,255,.55), rgba(255,255,255,0) 68%);
+}
+.card.bluec .photo::before{background:radial-gradient(ellipse, rgba(255,255,255,.4), rgba(255,255,255,0) 68%)}
+.card .photo img{max-width:100%;max-height:96%;width:auto;object-fit:contain;display:block;position:relative;z-index:1;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+/* multi-bed lineup: fill the band, single row of larger beds */
+.card.lineup .photo{gap:0.5%;align-content:center;flex-wrap:nowrap}
+.card.lineup .photo img{max-height:100%;height:100%;max-width:19.6%;width:19.6%;object-fit:contain}
+/* wellness: 4 units in one row, filling the band */
+.card.wellness .photo{gap:1.5%;align-content:center;flex-wrap:nowrap}
+.card.wellness .photo img{max-height:98%;max-width:24%}
+.card.wellness .photo img[alt="Salt Sauna"]{max-width:34%;max-height:100%;height:100%}
+/* rotating carousel for the featured card — 2 pieces at a time */
+.card .carousel{
+  flex:0 0 46%;min-height:0;position:relative;overflow:hidden;
+  padding:6px 8px;
+}
+.card .carousel::before{
+  content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:88%;aspect-ratio:1.5;border-radius:50%;z-index:0;
+  background:radial-gradient(ellipse, rgba(255,255,255,.5), rgba(255,255,255,0) 68%);
+}
+.card .slide{
+  position:absolute;inset:6px 8px;z-index:1;
+  display:flex;align-items:center;justify-content:center;gap:4%;
+  opacity:0;transition:opacity .7s ease;
+}
+.card .slide.active{opacity:1}
+.card .slide img{
+  max-width:47%;max-height:92%;width:auto;object-fit:contain;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));
+}
+.card .m-name{
+  flex:none;z-index:2;
+  font-family:'Anton',sans-serif;font-size:clamp(16px,1.5vw,23px);letter-spacing:.05em;
+  text-transform:uppercase;line-height:1.1;color:#fff;text-align:center;
+  padding:6px 10px;background:rgba(0,0,0,.55);
+  text-shadow:0 2px 8px rgba(0,0,0,.7);
+}
+.card .info{
+  flex:1;min-height:0;padding:6px 14px 10px;text-align:center;overflow:hidden;
+  background:rgba(8,10,20,.9);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+}
+.card .m-sub{font-size:clamp(12px,1vw,14.5px);font-weight:600;line-height:1.3;color:#dde4f4}
+.card .m-price{
+  font-family:'Anton',sans-serif;font-size:clamp(32px,3.3vw,48px);line-height:1;
+  color:var(--gold);letter-spacing:.01em;
+  text-shadow:0 0 26px rgba(255,217,74,.4), 0 4px 10px rgba(0,0,0,.5);
+}
+.card .m-per{font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#9dabd0}
+.card .m-start{
+  margin-top:7px;background:linear-gradient(90deg,var(--sun-1),var(--sun-2));color:var(--ink);
+  font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 20px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.4);
+}
+.card .best{
+  position:absolute;top:10px;right:10px;z-index:3;
+  background:linear-gradient(90deg,var(--gold),#fff06e);color:var(--ink);
+  font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;box-shadow:0 3px 12px rgba(0,0,0,.5);
+}
+.card.feat{box-shadow:0 0 0 4px var(--gold), 0 0 40px rgba(255,217,74,.45), 0 14px 34px rgba(0,0,0,.55)}
+.card.feat .m-price{font-size:clamp(36px,3.7vw,54px)}
+
+/* ── Package panels: full tier color + dark chips ── */
+.panels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;min-height:0}
+.panel{
+  border-radius:16px;min-height:0;overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:0 12px 26px rgba(0,0,0,.5);
+}
+.panel.red{background:linear-gradient(180deg,var(--red-1),var(--red-2))}
+.panel.yellow{background:linear-gradient(180deg,#2a2213,#15130c);box-shadow:0 12px 26px rgba(0,0,0,.5), inset 0 0 0 2px rgba(240,165,0,.6)}
+.panel.yellow .p-body{background:transparent;margin:0;border-radius:0}
+.panel.black{background:linear-gradient(180deg,var(--blk-1),var(--blk-2));box-shadow:0 12px 26px rgba(0,0,0,.5), inset 0 0 0 2px rgba(255,216,49,.4)}
+.panel.blue{background:linear-gradient(180deg,var(--blue-1),var(--blue-2))}
+.panel .p-head{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 13px 8px;flex:none;background:rgba(0,0,0,.18)}
+.panel.yellow .p-head{background:linear-gradient(135deg,#f0a500,#b87400)}
+.panel.yellow h3{color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.55)}
+.panel.yellow .p-sub{color:rgba(255,255,255,.92)}
+.panel .thumb{display:flex;align-items:center;justify-content:center;gap:6px;flex:none;width:100%}
+.panel .thumb img{
+  width:clamp(64px,7vw,104px);height:clamp(64px,7vw,104px);max-width:23%;border-radius:50%;object-fit:contain;display:block;padding:8px;flex:0 1 auto;min-width:0;
+  border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.45);
+  background:radial-gradient(circle at 50% 42%, #fff 60%, #dfe5f0 100%);
+}
+.panel .p-head .titles{text-align:center}
+.panel h3{
+  font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(17px,1.5vw,24px);
+  letter-spacing:.04em;text-transform:uppercase;line-height:1.08;color:#fff;
+  text-shadow:0 2px 6px rgba(0,0,0,.5);
+}
+.panel .p-sub{font-size:11px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.95)}
+.panel .p-body{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 11px 10px;gap:5px}
+.rows{display:flex;flex-direction:column;justify-content:space-between;flex:1;min-height:0;gap:5px;overflow:hidden}
+.row{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  min-height:0;flex:1 1 auto;
+  padding:5px 13px;border-radius:8px;
+  background:rgba(12,15,28,.82);
+  font-size:clamp(13px,1.08vw,16px);font-weight:700;letter-spacing:.01em;
+}
+.row .k{color:#fff}
+.row.combo .k{display:flex;flex-direction:column;gap:1px}
+.row.combo .sub-k{font-family:'Archivo',sans-serif;font-size:10.5px;font-weight:700;color:#9dabd0;letter-spacing:.02em;text-transform:none}
+.row .v{
+  font-family:'Anton',sans-serif;font-size:clamp(22px,1.8vw,29px);letter-spacing:.03em;line-height:1;
+  color:var(--gold);white-space:nowrap;text-shadow:0 1px 6px rgba(0,0,0,.5);
+  margin-left:auto;padding-left:10px;
+}
+.row.hi{padding:6px 12px;background:rgba(8,10,20,.94)}
+.panel.red .row.hi{box-shadow:inset 0 0 0 2px var(--red-1), 0 0 16px rgba(229,52,44,.4)}
+.panel.yellow .row.hi{box-shadow:inset 0 0 0 2px #f0a500, 0 0 16px rgba(240,165,0,.4)}
+.panel.black .row.hi{box-shadow:inset 0 0 0 2px var(--gold), 0 0 16px rgba(255,216,49,.4)}
+.panel.blue .row.hi{box-shadow:inset 0 0 0 2px var(--blue-1), 0 0 16px rgba(47,123,255,.5)}
+.row.hi .v{font-size:clamp(26px,2.1vw,34px);line-height:1}
+/* gap between the unlimited-time rows and the visit rows */
+.row-gap{height:6px;flex:0 0 auto;position:relative}
+.row-gap::after{
+  content:"";position:absolute;left:14%;right:14%;top:50%;height:2px;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 8px,transparent 8px 16px);
+}
+.panel.yellow .row-gap::after{background:repeating-linear-gradient(90deg,rgba(240,165,0,.4) 0 8px,transparent 8px 16px)}
+.reg{
+  font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;
+  text-decoration:line-through;margin-right:8px;letter-spacing:.02em;color:#9aa6c6;
+}
+.sale-tag{
+  display:none;font-size:9px;font-weight:900;letter-spacing:.1em;
+  color:#fff;background:var(--promo);border-radius:4px;padding:2px 5px;margin-right:6px;
+  vertical-align:middle;box-shadow:0 2px 6px rgba(0,0,0,.3);
+}
+body.promo .sale-tag{display:inline-block}
+body.promo .row.hi{box-shadow:inset 0 0 0 2px var(--promo)!important;background:rgba(8,10,20,.94)}
+body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 16px rgba(255,45,85,.5)}
+.p-foot{
+  flex:0 0 auto;margin-top:2px;
+  padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:.02em;line-height:1.35;
+  color:#fff;border-radius:8px;background:rgba(0,0,0,.22);
+}
+.p-foot b{color:var(--gold)}
+
+/* ── Bottom strip ───────────────────────── */
+.bottom{display:flex;flex-direction:column;gap:5px}
+.perks{
+  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  border-radius:12px;padding:8px 18px;
+  background:linear-gradient(180deg,var(--plate),var(--plate-2));
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.1);
+}
+.perk{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:#c8d2ec}
+.perk .dot{width:8px;height:8px;border-radius:50%;flex:none;background:var(--sun-1);box-shadow:0 0 8px rgba(255,217,74,.8)}
+.perk b{color:#fff}
+.perk .h{font-family:'Anton',sans-serif;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--sun-1);margin-right:2px}
+.foot{text-align:center;font-size:10.5px;font-weight:700;color:#8f9ec4;letter-spacing:.08em;text-transform:uppercase}
+
+@media (max-width:1100px){
+  body{overflow:auto}
+  .wrap{height:auto;grid-template-rows:none}
+  .cards{grid-template-columns:1fr 1fr}
+  .card .photo{min-height:170px}
+  .panels{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .cards,.panels{grid-template-columns:1fr}
+  .perks{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <h2 class="hero-title ed">VIP Smart Pay Memberships</h2>
+    <div class="head-right">
+      <span class="promo-banner ed">Half off 1-month packages &mdash; off the regular price</span>
+      <div class="btn promo-toggle" id="promoToggle" role="switch" aria-checked="false" tabindex="0"><span>Half-Off Event</span><span class="pill"></span></div>
+      <div class="btn" id="editBtn" tabindex="0">&#9998; Edit</div>
+      <div class="btn" id="saveBtn" tabindex="0">&#128190; Save Copy</div>
+    </div>
+  </header>
+
+  <!-- ═══ SMART PAY MEMBERSHIPS — THE HERO ═══ -->
+  <section class="hero">
+    <div class="cards">
+
+      <div class="card sunset">
+        <div class="photo"><img src="https://static.wixstatic.com/media/914cee_6334a16dc2654109bd41c72c91742899~mv2.png/v1/fill/w_260,h_255,al_c,q_90,enc_avif,quality_auto/Tanses.png" alt="VHR bed"><img src="https://static.wixstatic.com/media/914cee_cbd568d244dc4a4b99bfab1110c82892~mv2.png/v1/fill/w_250,h_250,al_c,q_90,enc_avif,quality_auto/Perfect%2010.png" alt="Perfect 10 stand-up"></div><div class="m-name ed">VHR</div>
+        <div class="info">
+          <div class="m-sub ed">Unlimited VHR beds &amp; stand-up</div>
+          <div class="m-price ed">$34.95</div>
+          <div class="m-per ed">Per Month</div>
+          <div class="m-start ed">$49 to start</div>
+        </div>
+      </div>
+
+      <div class="card sunset lineup">
+        <div class="photo"><img src="https://static.wixstatic.com/media/914cee_99c8fe7a76d64c82bfb5eeedae0aeed6~mv2.png/v1/crop/x_8,y_8,w_385,h_385/fill/w_150,h_145,al_c,q_90,enc_avif,quality_auto/Matrix%20L33.png" alt="Matrix L33"><img src="https://static.wixstatic.com/media/914cee_ccd7ba54122b423ca9ea6e5ecf9a2115~mv2.png/v1/fill/w_120,h_120,al_c,q_90,enc_avif,quality_auto/Cyclone.png" alt="Cyclone"><img src="https://static.wixstatic.com/media/914cee_3b57bf26936d4f288fd1d876aabe1a58~mv2.png/v1/fill/w_120,h_119,al_c,q_90,enc_avif,quality_auto/SuperSonic.png" alt="SuperSonic"><img src="https://static.wixstatic.com/media/914cee_4f80889c3b1d4899927fcfd11fcc803f~mv2.png/v1/fill/w_120,h_119,al_c,q_90,enc_avif,quality_auto/Slotron%20Shar.png" alt="Slotron"><img src="https://static.wixstatic.com/media/914cee_a6ded340420d4b0cac5c603548fc5179~mv2.png/v1/fill/w_180,h_177,al_c,q_90,enc_avif,quality_auto/7900%20blue%20new%20with%20background.png" alt="7900"></div><div class="m-name ed">All UV Access</div>
+        <div class="info">
+          <div class="m-sub ed">Every bed in the salon, unlimited</div>
+          <div class="m-price ed">$59.95</div>
+          <div class="m-per ed">Per Month</div>
+          <div class="m-start ed">$99 to start</div>
+        </div>
+      </div>
+
+      <div class="card bluec wellness">
+        <div class="photo"><img src="https://static.wixstatic.com/media/914cee_f8633228dc6b48d2b6590455ed6ae862~mv2.png/v1/fill/w_170,h_237,al_c,lg_1,q_90,enc_avif,quality_auto/versaspa.png" alt="VersaSpa Pro"><img src="https://static.wixstatic.com/media/914cee_7bbfd04f0b8e4cf991f58735f45d4571~mv2.png/v1/fill/w_180,h_257,al_c,q_90,enc_avif,quality_auto/poly-red-light.png" alt="Poly Red Light"><img src="https://static.wixstatic.com/media/914cee_68187784b66f4d5cb6e56e827b5bd5ac~mv2.png/v1/fill/w_250,h_255,al_c,q_90,enc_avif,quality_auto/RelaxWell%20POD%20Dlx%20Open%20Profile%200513.png" alt="Cocoon Pod"><img src="https://static.wixstatic.com/media/914cee_f661b0e0c5d646878191e295983b7539~mv2.png/v1/fill/w_270,h_200,al_c,q_90,enc_avif,quality_auto/HaloSauna%20Pro.png" alt="Salt Sauna"></div><div class="m-name ed">Wellness &amp; Spray</div>
+        <div class="info">
+          <div class="m-sub ed">Unlimited wellness + 1 FREE spray tan/mo &middot; $15 ea. additional</div>
+          <div class="m-price ed">$59.95</div>
+          <div class="m-per ed">Per Month</div>
+          <div class="m-start ed">$99 to start</div>
+        </div>
+      </div>
+
+      <div class="card mix feat">
+        <div class="best">Best Value</div>
+        <div class="carousel" id="allCarousel">
+          <div class="slide active">
+            <img src="https://static.wixstatic.com/media/914cee_a6ded340420d4b0cac5c603548fc5179~mv2.png/v1/fill/w_360,h_355,al_c,q_90,enc_avif,quality_auto/7900%20blue%20new%20with%20background.png" alt="7900 UV bed">
+            <img src="https://static.wixstatic.com/media/914cee_99c8fe7a76d64c82bfb5eeedae0aeed6~mv2.png/v1/crop/x_8,y_8,w_385,h_385/fill/w_340,h_340,al_c,q_90,enc_avif,quality_auto/Matrix%20L33.png" alt="Matrix L33">
+          </div>
+          <div class="slide">
+            <img src="https://static.wixstatic.com/media/914cee_ccd7ba54122b423ca9ea6e5ecf9a2115~mv2.png/v1/fill/w_340,h_340,al_c,q_90,enc_avif,quality_auto/Cyclone.png" alt="Cyclone">
+            <img src="https://static.wixstatic.com/media/914cee_3b57bf26936d4f288fd1d876aabe1a58~mv2.png/v1/fill/w_340,h_337,al_c,q_90,enc_avif,quality_auto/SuperSonic.png" alt="SuperSonic">
+          </div>
+          <div class="slide">
+            <img src="https://static.wixstatic.com/media/914cee_4f80889c3b1d4899927fcfd11fcc803f~mv2.png/v1/fill/w_340,h_337,al_c,q_90,enc_avif,quality_auto/Slotron%20Shar.png" alt="Slotron">
+            <img src="https://static.wixstatic.com/media/914cee_6334a16dc2654109bd41c72c91742899~mv2.png/v1/fill/w_360,h_355,al_c,q_90,enc_avif,quality_auto/Tanses.png" alt="VHR bed">
+          </div>
+          <div class="slide">
+            <img src="https://static.wixstatic.com/media/914cee_cbd568d244dc4a4b99bfab1110c82892~mv2.png/v1/fill/w_340,h_340,al_c,q_90,enc_avif,quality_auto/Perfect%2010.png" alt="Perfect 10">
+            <img src="https://static.wixstatic.com/media/914cee_68187784b66f4d5cb6e56e827b5bd5ac~mv2.png/v1/fill/w_360,h_365,al_c,q_90,enc_avif,quality_auto/RelaxWell%20POD%20Dlx%20Open%20Profile%200513.png" alt="RelaxWell POD">
+          </div>
+          <div class="slide">
+            <img src="https://static.wixstatic.com/media/914cee_f661b0e0c5d646878191e295983b7539~mv2.png/v1/fill/w_380,h_285,al_c,q_90,enc_avif,quality_auto/HaloSauna%20Pro.png" alt="HaloSauna Pro">
+            <img src="https://static.wixstatic.com/media/914cee_7bbfd04f0b8e4cf991f58735f45d4571~mv2.png/v1/fill/w_255,h_365,al_c,q_90,enc_avif,quality_auto/poly-red-light.png" alt="Poly Red Light">
+          </div>
+          <div class="slide">
+            <img src="https://static.wixstatic.com/media/914cee_f8633228dc6b48d2b6590455ed6ae862~mv2.png/v1/fill/w_260,h_365,al_c,lg_1,q_90,enc_avif,quality_auto/versaspa.png" alt="VersaSpa Pro">
+          </div>
+        </div><div class="m-name ed">All UV &amp; Wellness</div>
+        <div class="info">
+          <div class="m-sub ed">EVERYTHING &mdash; every bed, every wellness service</div>
+          <div class="m-price ed">$79.95</div>
+          <div class="m-per ed">Per Month</div>
+          <div class="m-start ed">$130 to start</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ PACKAGES ═══ -->
+  <section class="panels">
+
+    <div class="panel red">
+      <div class="p-head">
+        <div class="thumb"><img src="https://static.wixstatic.com/media/914cee_6334a16dc2654109bd41c72c91742899~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/Tanses.png" alt="Tanses"><img src="https://static.wixstatic.com/media/914cee_cbd568d244dc4a4b99bfab1110c82892~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/Perfect%2010.png" alt="Perfect 10"></div>
+        <div class="titles"><h3 class="ed">VHR Bed &amp; Stand-Up</h3><div class="p-sub ed">Our everyday beds</div></div>
+      </div>
+      <div class="p-body">
+        <div class="rows">
+          <div class="row hi"><span class="k"><span class="sale-tag">&frac12; OFF</span><span class="ed">1 Month Unlimited</span></span>
+            <span class="v"><span class="reg ed">$69</span><span class="px ed" data-normal="$49" data-promo="$34.50">$49</span></span></div>
+          <div class="row-gap"></div>
+          <div class="row"><span class="k ed">Single Visit</span><span class="v ed">$8</span></div>
+          <div class="row"><span class="k ed">Buy 3, Get 1 Free</span><span class="v ed">$27</span></div>
+          <div class="row"><span class="k ed">Buy 6, Get 3 Free</span><span class="v ed">$49</span></div>
+        </div>
+        <div class="p-foot ed">Add unlimited wellness to your month for <b>$50</b></div>
+      </div>
+    </div>
+
+    <div class="panel yellow">
+      <div class="p-head">
+        <div class="thumb"><img src="https://static.wixstatic.com/media/914cee_4f80889c3b1d4899927fcfd11fcc803f~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/Slotron%20Shar.png" alt="Slotron"><img src="https://static.wixstatic.com/media/914cee_3b57bf26936d4f288fd1d876aabe1a58~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/SuperSonic.png" alt="SuperSonic"><img src="https://static.wixstatic.com/media/914cee_a6ded340420d4b0cac5c603548fc5179~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/7900%20blue%20new%20with%20background.png" alt="7900"></div>
+        <div class="titles"><h3 class="ed">Ultra VHR/HP</h3><div class="p-sub ed">High-output premium beds</div></div>
+      </div>
+      <div class="p-body">
+        <div class="rows">
+          <div class="row hi"><span class="k"><span class="sale-tag">&frac12; OFF</span><span class="ed">1 Month Unlimited</span></span>
+            <span class="v"><span class="reg ed">$149</span><span class="px ed" data-normal="$119" data-promo="$74.50">$119</span></span></div>
+          <div class="row"><span class="k ed">2 Weeks Unlimited</span><span class="v ed">$89</span></div>
+          <div class="row"><span class="k ed">6 Weeks Unlimited</span><span class="v ed">$159</span></div>
+          <div class="row-gap"></div>
+          <div class="row"><span class="k ed">Single Visit</span><span class="v ed">$25</span></div>
+          <div class="row"><span class="k ed">Buy 3, Get 1 Free</span><span class="v ed">$89</span></div>
+          <div class="row"><span class="k ed">Buy 6, Get 3 Free</span><span class="v ed">$129</span></div>
+        </div>
+        <div class="p-foot ed">Add unlimited wellness to your month for <b>$50</b></div>
+      </div>
+    </div>
+
+    <div class="panel black">
+      <div class="p-head">
+        <div class="thumb"><img src="https://static.wixstatic.com/media/914cee_ccd7ba54122b423ca9ea6e5ecf9a2115~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/Cyclone.png" alt="Cyclone"><img src="https://static.wixstatic.com/media/914cee_99c8fe7a76d64c82bfb5eeedae0aeed6~mv2.png/v1/crop/x_8,y_8,w_385,h_385/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/Matrix%20L33.png" alt="Matrix L33"></div>
+        <div class="titles"><h3 class="ed">Ultra High Pressure</h3><div class="p-sub ed">Deepest, darkest, longest-lasting</div></div>
+      </div>
+      <div class="p-body">
+        <div class="rows">
+          <div class="row hi"><span class="k"><span class="sale-tag">&frac12; OFF</span><span class="ed">1 Month Unlimited</span></span>
+            <span class="v"><span class="reg ed">$159</span><span class="px ed" data-normal="$129" data-promo="$79.50">$129</span></span></div>
+          <div class="row"><span class="k ed">2 Weeks Unlimited</span><span class="v ed">$99</span></div>
+          <div class="row"><span class="k ed">6 Weeks Unlimited</span><span class="v ed">$169</span></div>
+          <div class="row-gap"></div>
+          <div class="row"><span class="k ed">Single Visit</span><span class="v ed">$30</span></div>
+          <div class="row"><span class="k ed">Buy 3, Get 1 Free</span><span class="v ed">$99</span></div>
+          <div class="row"><span class="k ed">Buy 6, Get 3 Free</span><span class="v ed">$139</span></div>
+        </div>
+        <div class="p-foot ed">Add unlimited wellness to your month for <b>$50</b></div>
+      </div>
+    </div>
+
+    <div class="panel blue">
+      <div class="p-head">
+        <div class="thumb"><img src="https://static.wixstatic.com/media/914cee_68187784b66f4d5cb6e56e827b5bd5ac~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/RelaxWell%20POD.png" alt="Cocoon Pod"><img src="https://static.wixstatic.com/media/914cee_8e91d3d5f39c4da8a3fd422a542bfac0~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/wellness.png" alt="Red Light"><img src="https://static.wixstatic.com/media/914cee_f661b0e0c5d646878191e295983b7539~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/HaloSauna%20Pro.png" alt="Salt Sauna"><img src="https://static.wixstatic.com/media/914cee_f8633228dc6b48d2b6590455ed6ae862~mv2.png/v1/fill/w_120,h_120,al_c,lg_1,q_85,enc_avif,quality_auto/versaspa.png" alt="VersaSpa"></div>
+        <div class="titles"><h3 class="ed">Wellness &amp; Spray</h3><div class="p-sub ed">Cocoon Pod &middot; Salt Sauna &middot; Red Light &middot; VersaSpa</div></div>
+      </div>
+      <div class="p-body">
+        <div class="rows">
+          <div class="row hi"><span class="k"><span class="sale-tag">&frac12; OFF</span><span class="ed">1 Month Unlimited</span></span>
+            <span class="v"><span class="reg ed">$139</span><span class="px ed" data-normal="$89" data-promo="$69.50">$89</span></span></div>
+          <div class="row-gap"></div>
+          <div class="row combo"><span class="k"><span class="ed">Single Visit</span><span class="sub-k ed">then $22 ea. next 30 days</span></span><span class="v ed">$35</span></div>
+          <div class="row"><span class="k ed">Buy 2 Visits, Get 1 Free</span><span class="v ed">$70</span></div>
+        </div>
+        <div class="p-foot ed">Month includes 1 FREE spray tan &mdash; <b>$20</b> each additional</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ PERKS + FINE PRINT ═══ -->
+  <div class="bottom">
+    <div class="perks">
+      <div class="perk"><span class="dot"></span><span class="ed"><span class="h">50% Off Lotions</span> <b>Half price on every bottle</b> with any package</span></div>
+      <div class="perk"><span class="dot"></span><span class="ed"><span class="h">Never Expires</span> Visit packages never expire &amp; are <b>shareable</b></span></div>
+      <div class="perk"><span class="dot"></span><span class="ed"><span class="h">Add Wellness</span> Any UV month + unlimited wellness for <b>$50</b></span></div>
+      <div class="perk"><span class="dot"></span><span class="ed"><span class="h">Freeze, Don&rsquo;t Cancel</span> Take a break, <b>keep your rate</b></span></div>
+    </div>
+    <p class="foot ed">Memberships are month-to-month Smart Pay (EFT) &middot; Start fees are one-time at signup &middot; Half-off applies to the regular package price &middot; Prices subject to change</p>
+  </div>
+
+</div>
+
+<div class="edit-hint">Editing on &mdash; click any text to change it, then hit Save Copy</div>
+
+<script>
+/* ── Rotating equipment carousels (2 at a time) ── */
+(function(){
+  document.querySelectorAll('.carousel').forEach(function(c){
+    var slides = c.querySelectorAll('.slide');
+    if(slides.length < 2) return;
+    var i = 0;
+    setInterval(function(){
+      slides[i].classList.remove('active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('active');
+    }, 2000);
+  });
+})();
+
+/* ── Half-Off Event toggle ── */
+(function(){
+  var t = document.getElementById('promoToggle');
+  function setPromo(on){
+    document.body.classList.toggle('promo', on);
+    t.setAttribute('aria-checked', on ? 'true' : 'false');
+    document.querySelectorAll('.px').forEach(function(el){ el.textContent = on ? el.dataset.promo : el.dataset.normal; });
+  }
+  t.addEventListener('click', function(){ setPromo(!document.body.classList.contains('promo')); });
+  t.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); t.click(); } });
+})();
+
+/* ── Edit mode ── */
+(function(){
+  var editBtn = document.getElementById('editBtn');
+  var saveBtn = document.getElementById('saveBtn');
+  function setEditing(on){
+    document.body.classList.toggle('editing', on);
+    document.querySelectorAll('.ed').forEach(function(el){
+      if(on){ el.setAttribute('contenteditable','true'); } else { el.removeAttribute('contenteditable'); }
+    });
+    editBtn.innerHTML = on ? '&#10003; Done' : '&#9998; Edit';
+  }
+  editBtn.addEventListener('click', function(){ setEditing(!document.body.classList.contains('editing')); });
+  document.addEventListener('input', function(e){
+    var el = e.target.closest ? e.target.closest('.px') : null;
+    if(!el) return;
+    if(document.body.classList.contains('promo')){ el.dataset.promo = el.textContent.trim(); }
+    else{ el.dataset.normal = el.textContent.trim(); }
+  });
+  saveBtn.addEventListener('click', function(){
+    var wasPromo = document.body.classList.contains('promo');
+    setEditing(false);
+    var clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll('[contenteditable]').forEach(function(el){ el.removeAttribute('contenteditable'); });
+    var cb = clone.querySelector('body'); cb.classList.remove('editing'); cb.classList.remove('promo');
+    clone.querySelectorAll('.px').forEach(function(el){ el.textContent = el.dataset.normal; });
+    var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    var blob = new Blob([html], {type:'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = 'vip-price-board.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    if(wasPromo){ document.getElementById('promoToggle').click(); }
+  });
+})();
+</script>
+</body>
+</html>
