@@ -12,7 +12,7 @@
   --bg:#0f1424;
   --plate:#12172a;
   --plate-2:#0d1120;
-  --sun-1:#ffd94a; --sun-2:#ff9a2e; --sun-3:#ff6b2c;
+  --sun-1:#ffd94a; --sun-2:#e9c15a; --sun-3:#c9982f;
   --blue-1:#2f7bff; --blue-2:#123fa8;
   --red-1:#e5342c; --red-2:#8f120e;
   --yel-1:#ffd831; --yel-2:#f0a500;
@@ -26,8 +26,8 @@
 html,body{height:100%}
 body{
   background:
-    radial-gradient(1300px 520px at 50% -12%, rgba(255,154,46,.28), transparent 62%),
-    radial-gradient(900px 520px at 100% 108%, rgba(47,123,255,.15), transparent 60%),
+    radial-gradient(1300px 520px at 50% -12%, rgba(120,150,205,.16), transparent 62%),
+    radial-gradient(900px 520px at 100% 108%, rgba(47,123,255,.13), transparent 60%),
     var(--bg);
   color:var(--white);
   font-family:'Archivo',sans-serif;
@@ -53,7 +53,7 @@ h1{
   font-size:clamp(24px,2.6vw,40px);line-height:1;letter-spacing:.02em;text-transform:uppercase;
   background:linear-gradient(180deg,#fff 0%,var(--sun-1) 45%,var(--sun-3) 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 3px 16px rgba(255,154,46,.35));
+  filter:drop-shadow(0 3px 16px rgba(255,217,74,.32));
   white-space:nowrap;
 }
 .tag{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#9dabd0;white-space:nowrap}
@@ -115,9 +115,9 @@ body.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);backgr
   display:flex;flex-direction:column;min-height:0;
   box-shadow:0 12px 30px rgba(0,0,0,.5);
 }
-.card.sunset{background:linear-gradient(180deg,var(--sun-1),var(--sun-2) 52%,var(--sun-3))}
+.card.sunset{background:linear-gradient(180deg,#3b4560,#1e2436)}
 .card.bluec{background:linear-gradient(180deg,var(--blue-1),var(--blue-2))}
-.card.mix{background:linear-gradient(155deg,var(--sun-2),var(--sun-3) 42%,var(--blue-2))}
+.card.mix{background:linear-gradient(155deg,#274169,#111a2e)}
 .card .photo{
   flex:0 0 46%;min-height:0;position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:center;gap:1.5%;padding:6px 8px;flex-wrap:wrap;
