@@ -12,14 +12,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: claude/makechnags-access-check-05jhtz
-      - name: Fetch Wix assets
+      - name: Fetch all Wix media originals
         run: |
-          mkdir -p img wix-scratch
-          curl -sSL -o img/versaspa-original.png "https://static.wixstatic.com/media/914cee_f8633228dc6b48d2b6590455ed6ae862~mv2.png"
-          curl -sSL -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36" \
-            -o wix-scratch/priceboard.html "https://vipsteve.wixsite.com/priceboardoxford" || true
-          grep -oE 'static\.wixstatic\.com/media/[A-Za-z0-9_~%.-]+' wix-scratch/priceboard.html | sort -u > wix-scratch/media-ids.txt || true
-          ls -la img wix-scratch
+          mkdir -p wix-scratch/all
+          while read -r m; do
+            [ -z "$m" ] && continue
+            id=$(basename "$m")
+            curl -sSL -o "wix-scratch/all/$id" "https://$m" || true
+          done < wix-scratch/media-ids.txt
+          ls -la wix-scratch/all
       - name: Commit results
         run: |
           git config user.name "asset-fetcher"
