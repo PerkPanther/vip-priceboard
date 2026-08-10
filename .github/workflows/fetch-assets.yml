@@ -1,6 +1,8 @@
 name: fetch-assets
 on:
   workflow_dispatch:
+  push:
+    branches: [claude/makechnags-access-check-05jhtz]
 permissions:
   contents: write
 jobs:
