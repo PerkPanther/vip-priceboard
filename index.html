@@ -181,6 +181,7 @@ body.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);backgr
   font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
   padding:7px 20px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.4);
 }
+body.promo .card .m-start{background:linear-gradient(90deg,var(--promo),#ff5c7d);color:#fff}
 .card .best{
   position:absolute;top:10px;right:10px;z-index:3;
   background:linear-gradient(90deg,var(--gold),#fff06e);color:var(--ink);
@@ -208,7 +209,7 @@ body.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);backgr
 .panel.yellow .p-sub{color:rgba(255,255,255,.92)}
 .panel .thumb{display:flex;align-items:center;justify-content:center;gap:6px;flex:none;width:100%}
 .panel .thumb img{
-  width:clamp(64px,7vw,104px);height:clamp(64px,7vw,104px);max-width:23%;border-radius:50%;object-fit:contain;display:block;padding:8px;flex:0 1 auto;min-width:0;
+  width:clamp(72px,8.6vw,128px);height:clamp(72px,8.6vw,128px);max-width:24%;border-radius:50%;object-fit:contain;display:block;padding:8px;flex:0 1 auto;min-width:0;
   border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.45);
   background:radial-gradient(circle at 50% 38%, #ffe9a8 0%, var(--sun-1) 34%, var(--sun-2) 68%, var(--sun-3) 100%);
 }
@@ -232,9 +233,9 @@ body.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);backgr
 .row.combo .k{display:flex;flex-direction:column;gap:1px}
 .row.combo .sub-k{font-family:'Archivo',sans-serif;font-size:clamp(11.5px,1vw,14px);font-weight:700;color:#9dabd0;letter-spacing:.02em;text-transform:none}
 .row .v{
-  font-family:'Anton',sans-serif;font-size:clamp(22px,1.8vw,29px);letter-spacing:.03em;line-height:1;
-  color:#ffdf3d;white-space:nowrap;
-  text-shadow:0 2px 0 rgba(0,0,0,.85), 0 3px 6px rgba(0,0,0,.6);
+  font-family:'Anton',sans-serif;font-size:clamp(24px,2vw,32px);letter-spacing:.03em;line-height:1;
+  color:var(--gold);white-space:nowrap;
+  text-shadow:0 0 18px rgba(255,217,74,.4), 0 3px 8px rgba(0,0,0,.5);
   margin-left:auto;padding-left:10px;
 }
 .row.hi{padding:6px 12px;background:rgba(8,10,20,.94)}
@@ -242,7 +243,7 @@ body.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);backgr
 .panel.yellow .row.hi{box-shadow:inset 0 0 0 2px #f0a500, 0 0 16px rgba(240,165,0,.4)}
 .panel.black .row.hi{box-shadow:inset 0 0 0 2px var(--gold), 0 0 16px rgba(255,216,49,.4)}
 .panel.blue .row.hi{box-shadow:inset 0 0 0 2px var(--blue-1), 0 0 16px rgba(47,123,255,.5)}
-.row.hi .v{font-size:clamp(26px,2.1vw,34px);line-height:1}
+.row.hi .v{font-size:clamp(29px,2.4vw,38px);line-height:1}
 /* gap between the unlimited-time rows and the visit rows */
 .row-gap{height:6px;flex:0 0 auto;position:relative}
 .row-gap::after{
@@ -262,7 +263,7 @@ body.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);backgr
 }
 body.promo .sale-tag{display:inline-block}
 body.promo .row.hi{box-shadow:inset 0 0 0 2px var(--promo)!important;background:rgba(8,10,20,.94)}
-body.promo .row.hi .v{color:#ff4d6e;text-shadow:0 2px 0 rgba(0,0,0,.85), 0 3px 6px rgba(0,0,0,.6)}
+body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45), 0 3px 8px rgba(0,0,0,.5)}
 .p-foot{
   flex:0 0 auto;margin-top:2px;
   padding:6px 12px;font-size:clamp(12px,1.1vw,15.5px);font-weight:700;letter-spacing:.02em;line-height:1.35;
@@ -304,7 +305,7 @@ body.promo .row.hi .v{color:#ff4d6e;text-shadow:0 2px 0 rgba(0,0,0,.85), 0 3px 6
   <header class="head">
     <h2 class="hero-title ed">VIP Smart Pay Memberships</h2>
     <div class="head-right">
-      <span class="promo-banner ed">Half off 1-month packages &mdash; off the regular price</span>
+      <span class="promo-banner ed">Half off 1-month packages &middot; FREE EFT enrollment</span>
       <div class="btn promo-toggle" id="promoToggle" role="switch" aria-checked="false" tabindex="0"><span>Half-Off Event</span><span class="pill"></span></div>
       <div class="btn" id="editBtn" tabindex="0">&#9998; Edit</div>
       <div class="btn" id="saveBtn" tabindex="0">&#128190; Save Copy</div>
@@ -321,17 +322,17 @@ body.promo .row.hi .v{color:#ff4d6e;text-shadow:0 2px 0 rgba(0,0,0,.85), 0 3px 6
           <div class="m-sub ed">Unlimited VHR beds &amp; stand-up</div>
           <div class="m-price ed">$34.95</div>
           <div class="m-per ed">Per Month</div>
-          <div class="m-start ed">$49 to start</div>
+          <div class="m-start ed px" data-normal="$49 to start" data-promo="FREE to start &mdash; no enrollment fee">$49 to start</div>
         </div>
       </div>
 
       <div class="card sunset lineup">
         <div class="photo"><img src="https://static.wixstatic.com/media/914cee_99c8fe7a76d64c82bfb5eeedae0aeed6~mv2.png/v1/crop/x_8,y_8,w_385,h_385/fill/w_150,h_145,al_c,q_90,enc_avif,quality_auto/Matrix%20L33.png" alt="Matrix L33"><img src="https://static.wixstatic.com/media/914cee_ccd7ba54122b423ca9ea6e5ecf9a2115~mv2.png/v1/fill/w_120,h_120,al_c,q_90,enc_avif,quality_auto/Cyclone.png" alt="Cyclone"><img src="https://static.wixstatic.com/media/914cee_3b57bf26936d4f288fd1d876aabe1a58~mv2.png/v1/fill/w_120,h_119,al_c,q_90,enc_avif,quality_auto/SuperSonic.png" alt="SuperSonic"><img src="https://static.wixstatic.com/media/914cee_4f80889c3b1d4899927fcfd11fcc803f~mv2.png/v1/fill/w_120,h_119,al_c,q_90,enc_avif,quality_auto/Slotron%20Shar.png" alt="Slotron"><img src="https://static.wixstatic.com/media/914cee_a6ded340420d4b0cac5c603548fc5179~mv2.png/v1/fill/w_180,h_177,al_c,q_90,enc_avif,quality_auto/7900%20blue%20new%20with%20background.png" alt="7900"></div><div class="m-name ed">All UV Access</div>
         <div class="info">
-          <div class="m-sub ed">Every bed in the salon, unlimited</div>
+          <div class="m-sub ed">Every tanning bed in the salon, unlimited</div>
           <div class="m-price ed">$59.95</div>
           <div class="m-per ed">Per Month</div>
-          <div class="m-start ed">$99 to start</div>
+          <div class="m-start ed px" data-normal="$99 to start" data-promo="FREE to start &mdash; no enrollment fee">$99 to start</div>
         </div>
       </div>
 
@@ -341,7 +342,7 @@ body.promo .row.hi .v{color:#ff4d6e;text-shadow:0 2px 0 rgba(0,0,0,.85), 0 3px 6
           <div class="m-sub ed">Unlimited wellness + 1 FREE spray tan/mo &middot; $15 ea. additional</div>
           <div class="m-price ed">$59.95</div>
           <div class="m-per ed">Per Month</div>
-          <div class="m-start ed">$99 to start</div>
+          <div class="m-start ed px" data-normal="$99 to start" data-promo="FREE to start &mdash; no enrollment fee">$99 to start</div>
         </div>
       </div>
 
@@ -376,7 +377,7 @@ body.promo .row.hi .v{color:#ff4d6e;text-shadow:0 2px 0 rgba(0,0,0,.85), 0 3px 6
           <div class="m-sub ed">EVERYTHING &mdash; every bed, every wellness service</div>
           <div class="m-price ed">$79.95</div>
           <div class="m-per ed">Per Month</div>
-          <div class="m-start ed">$130 to start</div>
+          <div class="m-start ed px" data-normal="$130 to start" data-promo="FREE to start &mdash; no enrollment fee">$130 to start</div>
         </div>
       </div>
 
@@ -446,7 +447,7 @@ body.promo .row.hi .v{color:#ff4d6e;text-shadow:0 2px 0 rgba(0,0,0,.85), 0 3px 6
 
     <div class="panel blue">
       <div class="p-head">
-        <div class="thumb"><img src="https://static.wixstatic.com/media/914cee_68187784b66f4d5cb6e56e827b5bd5ac~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/RelaxWell%20POD.png" alt="Cocoon Pod"><img src="https://static.wixstatic.com/media/914cee_8e91d3d5f39c4da8a3fd422a542bfac0~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/wellness.png" alt="Red Light"><img src="https://static.wixstatic.com/media/914cee_f661b0e0c5d646878191e295983b7539~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/HaloSauna%20Pro.png" alt="Salt Sauna"><img src="https://static.wixstatic.com/media/914cee_f8633228dc6b48d2b6590455ed6ae862~mv2.png/v1/fill/w_120,h_120,al_c,lg_1,q_85,enc_avif,quality_auto/versaspa.png" alt="VersaSpa"></div>
+        <div class="thumb"><img src="https://static.wixstatic.com/media/914cee_68187784b66f4d5cb6e56e827b5bd5ac~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/RelaxWell%20POD.png" alt="Cocoon Pod"><img src="https://static.wixstatic.com/media/914cee_8e91d3d5f39c4da8a3fd422a542bfac0~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/wellness.png" alt="Red Light"><img src="https://static.wixstatic.com/media/914cee_f661b0e0c5d646878191e295983b7539~mv2.png/v1/fill/w_120,h_120,al_c,q_85,enc_avif,quality_auto/HaloSauna%20Pro.png" alt="Salt Sauna"><img src="https://static.wixstatic.com/media/914cee_f8633228dc6b48d2b6590455ed6ae862~mv2.png/v1/fill/w_170,h_237,al_c,lg_1,q_90,enc_avif,quality_auto/versaspa.png" alt="VersaSpa"></div>
         <div class="titles"><h3 class="ed">Wellness &amp; Spray</h3><div class="p-sub ed">Cocoon Pod &middot; Salt Sauna &middot; Red Light &middot; VersaSpa</div></div>
       </div>
       <div class="p-body">
