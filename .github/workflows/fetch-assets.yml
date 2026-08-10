@@ -1,0 +1,27 @@
+name: fetch-assets
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/makechnags-access-check-05jhtz
+      - name: Fetch Wix assets
+        run: |
+          mkdir -p img wix-scratch
+          curl -sSL -o img/versaspa-original.png "https://static.wixstatic.com/media/914cee_f8633228dc6b48d2b6590455ed6ae862~mv2.png"
+          curl -sSL -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36" \
+            -o wix-scratch/priceboard.html "https://vipsteve.wixsite.com/priceboardoxford" || true
+          grep -oE 'static\.wixstatic\.com/media/[A-Za-z0-9_~%.-]+' wix-scratch/priceboard.html | sort -u > wix-scratch/media-ids.txt || true
+          ls -la img wix-scratch
+      - name: Commit results
+        run: |
+          git config user.name "asset-fetcher"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Fetch Wix assets for inspection" || echo "nothing to commit"
+          git push
