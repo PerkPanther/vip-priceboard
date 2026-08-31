@@ -83,15 +83,92 @@ body.promo .promo-toggle{border-color:var(--promo);color:var(--promo)}
 body.promo .promo-toggle .pill{border-color:var(--promo)}
 body.promo .promo-toggle .pill::after{transform:translateX(18px);background:var(--promo)}
 body.editing #editBtn{border-color:var(--gold);color:var(--gold);background:rgba(255,217,74,.1)}
-#saveBtn{display:none}
-body.editing #saveBtn{display:flex;border-color:#3ddc84;color:#3ddc84}
+
+/* ── Settings gear (only visible control on the board) ── */
+.gear{
+  width:34px;height:34px;flex:none;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid #2a3453;background:#161c30;color:#7f8db5;
+  font-size:17px;line-height:1;cursor:pointer;opacity:.5;
+  transition:opacity .3s,border-color .3s,color .3s;
+}
+.gear:hover,.gear:focus-visible{opacity:1;border-color:#3d4a75;color:var(--sun-1)}
+body.promo .gear{opacity:.9;border-color:var(--promo);color:var(--promo)}
+
+/* ── PIN lock + settings sheet ── */
+.modal{
+  position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+  background:rgba(4,6,14,.8);backdrop-filter:blur(3px);
+}
+.modal[hidden]{display:none}
+.sheet{
+  width:min(92vw,340px);padding:20px;border-radius:18px;
+  background:linear-gradient(180deg,#161c30,#0d1120);
+  box-shadow:0 20px 60px rgba(0,0,0,.7), inset 0 0 0 2px rgba(255,255,255,.08);
+}
+.sheet h4{
+  font-family:'Anton',sans-serif;font-weight:400;font-size:21px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--sun-1);text-align:center;
+}
+.sheet .sub{
+  text-align:center;font-size:11px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:#7f8db5;margin-top:3px;
+}
+.dots{display:flex;justify-content:center;gap:13px;margin:16px 0 18px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid #3a4569;transition:background .15s,border-color .15s}
+.dots i.on{background:var(--sun-1);border-color:var(--sun-1);box-shadow:0 0 10px rgba(255,217,74,.6)}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.pad button{
+  padding:13px 0;border-radius:12px;border:2px solid #2a3453;background:#1b2238;color:#fff;
+  font-family:'Archivo',sans-serif;font-size:20px;font-weight:800;cursor:pointer;
+  transition:background .15s,border-color .15s;
+}
+.pad button:hover{background:#243052;border-color:#3d4a75}
+.pad button:active{background:var(--sun-2);border-color:var(--sun-2);color:var(--ink)}
+.pad .k-act{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#9dabd0}
+.err{
+  visibility:hidden;text-align:center;margin-top:12px;
+  font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--promo);
+}
+.err.show{visibility:visible}
+.shake{animation:shake .38s ease}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-9px)}
+  40%{transform:translateX(9px)}
+  60%{transform:translateX(-5px)}
+  80%{transform:translateX(5px)}
+}
+.opt{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 14px;margin-top:10px;border-radius:12px;background:rgba(255,255,255,.05);
+}
+.opt .lab{font-size:13.5px;font-weight:800;color:#fff;letter-spacing:.02em}
+.opt .lab small{
+  display:block;margin-top:3px;font-size:11px;font-weight:600;
+  letter-spacing:.01em;color:#8f9ec4;text-transform:none;
+}
+.sw{display:flex;align-items:center;flex:none;cursor:pointer;user-select:none}
+.ghost{
+  width:100%;margin-top:14px;padding:10px 0;border-radius:12px;
+  border:2px solid #2a3453;background:transparent;color:#9dabd0;cursor:pointer;
+  font-family:'Archivo',sans-serif;font-size:11px;font-weight:900;
+  letter-spacing:.14em;text-transform:uppercase;transition:border-color .3s,color .3s;
+}
+.ghost:hover{border-color:#3d4a75;color:#fff}
+
+/* ── Editing toolbar ── */
 .edit-hint{
-  display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:50;
-  background:rgba(255,217,74,.95);color:var(--ink);font-size:12px;font-weight:800;
-  letter-spacing:.08em;text-transform:uppercase;padding:8px 20px;border-radius:999px;
+  display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:90;
+  align-items:center;gap:11px;
+  background:rgba(255,217,74,.97);color:var(--ink);font-size:12px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;padding:8px 9px 8px 20px;border-radius:999px;
   box-shadow:0 6px 20px rgba(0,0,0,.5);
 }
-body.editing .edit-hint{display:block}
+body.editing .edit-hint{display:flex}
+.edit-hint .btn{background:var(--ink);border-color:var(--ink);color:#fff;padding:7px 15px}
+#saveBtn{background:var(--ink);border-color:#3ddc84;color:#3ddc84}
+#doneBtn{background:var(--ink);border-color:#fff;color:#fff}
 body.editing [contenteditable="true"]{
   outline:2px dashed rgba(255,217,74,.7);outline-offset:2px;border-radius:4px;cursor:text;min-width:12px;
 }
@@ -165,21 +242,21 @@ body.editing [contenteditable="true"]:focus{outline:2px solid var(--gold);backgr
   text-shadow:0 2px 8px rgba(0,0,0,.7);
 }
 .card .info{
-  flex:1;min-height:0;padding:6px 14px 10px;text-align:center;overflow:hidden;
+  flex:1;min-height:0;padding:clamp(3px,.55vh,6px) 14px clamp(5px,.95vh,10px);text-align:center;overflow:hidden;
   background:rgba(8,10,20,.9);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
 }
-.card .m-sub{font-size:clamp(12px,1vw,14.5px);font-weight:600;line-height:1.3;color:#dde4f4}
+.card .m-sub{font-size:clamp(11px,.85vw,14.5px);font-weight:600;line-height:1.3;color:#dde4f4}
 .card .m-price{
-  font-family:'Anton',sans-serif;font-size:clamp(32px,3.3vw,48px);line-height:1;
+  font-family:'Anton',sans-serif;font-size:clamp(28px,2.9vw,48px);line-height:1;
   color:var(--gold);letter-spacing:.01em;
   text-shadow:0 0 26px rgba(255,217,74,.4), 0 4px 10px rgba(0,0,0,.5);
 }
 .card .m-per{font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#9dabd0}
 .card .m-start{
-  margin-top:7px;background:linear-gradient(90deg,var(--sun-1),var(--sun-2));color:var(--ink);
-  font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
-  padding:7px 20px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.4);
+  margin-top:clamp(3px,.65vh,7px);background:linear-gradient(90deg,var(--sun-1),var(--sun-2));color:var(--ink);
+  font-size:clamp(11px,.7vw,13px);font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+  padding:clamp(4px,.65vh,7px) 20px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.4);
 }
 body.promo .card .m-start{background:linear-gradient(90deg,var(--promo),#ff5c7d);color:#fff}
 .card .best{
@@ -189,7 +266,7 @@ body.promo .card .m-start{background:linear-gradient(90deg,var(--promo),#ff5c7d)
   padding:5px 12px;border-radius:999px;box-shadow:0 3px 12px rgba(0,0,0,.5);
 }
 .card.feat{box-shadow:0 0 0 4px var(--gold), 0 0 40px rgba(255,217,74,.45), 0 14px 34px rgba(0,0,0,.55)}
-.card.feat .m-price{font-size:clamp(36px,3.7vw,54px)}
+.card.feat .m-price{font-size:clamp(31px,3.2vw,54px)}
 
 /* ── Package panels: full tier color + dark chips ── */
 .panels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;min-height:0}
@@ -220,31 +297,30 @@ body.promo .card .m-start{background:linear-gradient(90deg,var(--promo),#ff5c7d)
   text-shadow:0 2px 6px rgba(0,0,0,.5);
 }
 .panel .p-sub{font-size:clamp(12px,1vw,15px);font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.95)}
-.panel .p-body{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 11px 10px;gap:5px}
-.rows{display:flex;flex-direction:column;justify-content:space-between;flex:1;min-height:0;gap:5px;overflow:hidden}
+.panel .p-body{flex:1;min-height:0;display:flex;flex-direction:column;padding:clamp(5px,.85vh,9px) 11px clamp(6px,.95vh,10px);gap:clamp(3px,.5vh,5px)}
+.rows{display:flex;flex-direction:column;justify-content:space-between;flex:1;min-height:0;gap:clamp(3px,.5vh,5px);overflow:hidden}
 .row{
   display:flex;justify-content:space-between;align-items:center;gap:8px;
   min-height:0;flex:1 1 auto;
-  padding:5px 13px;border-radius:8px;
+  padding:clamp(2px,.5vh,5px) 13px;border-radius:8px;
   background:rgba(12,15,28,.82);
-  font-size:clamp(15px,1.5vw,22px);font-weight:700;letter-spacing:.01em;
+  font-size:clamp(13px,1.25vw,22px);font-weight:700;letter-spacing:.01em;
 }
-.row .k{color:#fff}
+.row .k{color:#fff;min-width:0;flex:1 1 auto}
 .row.combo .k{display:flex;flex-direction:column;gap:1px}
 .row.combo .sub-k{font-family:'Archivo',sans-serif;font-size:clamp(11.5px,1vw,14px);font-weight:700;color:#9dabd0;letter-spacing:.02em;text-transform:none}
 .row .v{
-  font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(20px,1.75vw,28px);letter-spacing:.01em;line-height:1;
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(18px,1.5vw,28px);letter-spacing:.01em;line-height:1;
   color:var(--gold);white-space:nowrap;
   text-shadow:0 0 18px rgba(255,217,74,.4), 0 3px 8px rgba(0,0,0,.5);
-  margin-left:auto;padding-left:10px;
-  transform:scaleX(1.28);transform-origin:100% 50%;
+  margin-left:auto;padding-left:10px;flex:0 0 auto;
 }
-.row.hi{padding:6px 12px;background:rgba(8,10,20,.94)}
+.row.hi{padding:clamp(3px,.6vh,6px) 12px;background:rgba(8,10,20,.94)}
 .panel.red .row.hi{box-shadow:inset 0 0 0 2px var(--red-1), 0 0 16px rgba(229,52,44,.4)}
 .panel.yellow .row.hi{box-shadow:inset 0 0 0 2px #f0a500, 0 0 16px rgba(240,165,0,.4)}
 .panel.black .row.hi{box-shadow:inset 0 0 0 2px var(--gold), 0 0 16px rgba(255,216,49,.4)}
 .panel.blue .row.hi{box-shadow:inset 0 0 0 2px var(--blue-1), 0 0 16px rgba(47,123,255,.5)}
-.row.hi .v{font-size:clamp(23px,2.05vw,32px);line-height:1}
+.row.hi .v{font-size:clamp(20px,1.8vw,32px);line-height:1}
 /* gap between the unlimited-time rows and the visit rows */
 .row-gap{height:6px;flex:0 0 auto;position:relative}
 .row-gap::after{
@@ -253,7 +329,7 @@ body.promo .card .m-start{background:linear-gradient(90deg,var(--promo),#ff5c7d)
 }
 .panel.yellow .row-gap::after{background:repeating-linear-gradient(90deg,rgba(240,165,0,.4) 0 8px,transparent 8px 16px)}
 .reg{
-  font-family:'Archivo',sans-serif;font-size:15px;font-weight:800;
+  font-family:'Archivo',sans-serif;font-size:clamp(11px,.8vw,15px);font-weight:800;
   margin-right:8px;letter-spacing:.02em;color:#c2cbe4;
   text-shadow:0 1px 0 rgba(0,0,0,.8);
 }
@@ -272,7 +348,7 @@ body.promo .row.hi{box-shadow:inset 0 0 0 2px var(--promo)!important;background:
 body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45), 0 3px 8px rgba(0,0,0,.5)}
 .p-foot{
   flex:0 0 auto;margin-top:2px;
-  padding:6px 12px;font-size:clamp(12px,1.1vw,15.5px);font-weight:700;letter-spacing:.02em;line-height:1.35;
+  padding:clamp(3px,.55vh,6px) 12px;font-size:clamp(11px,1vw,15.5px);font-weight:700;letter-spacing:.02em;line-height:1.35;
   color:#fff;border-radius:8px;background:rgba(0,0,0,.22);
 }
 .p-foot b{color:var(--gold)}
@@ -312,9 +388,7 @@ body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45
     <h2 class="hero-title ed">VIP Smart Pay Memberships</h2>
     <div class="head-right">
       <span class="promo-banner ed">Half off 1-month packages &middot; FREE EFT enrollment</span>
-      <div class="btn promo-toggle" id="promoToggle" role="switch" aria-checked="false" tabindex="0"><span>Half-Off Event</span><span class="pill"></span></div>
-      <div class="btn" id="editBtn" tabindex="0">&#9998; Edit</div>
-      <div class="btn" id="saveBtn" tabindex="0">&#128190; Save Copy</div>
+      <button type="button" class="gear" id="gearBtn" aria-label="Board settings" title="Board settings">&#9881;</button>
     </div>
   </header>
 
@@ -483,7 +557,54 @@ body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45
 
 </div>
 
-<div class="edit-hint">Editing on &mdash; click any text to change it, then hit Save Copy</div>
+<div class="edit-hint">
+  <span>Editing on &mdash; click any text to change it</span>
+  <div class="btn" id="saveBtn" tabindex="0">&#128190; Save Copy</div>
+  <div class="btn" id="doneBtn" tabindex="0">&#10003; Done</div>
+</div>
+
+<!-- ═══ PIN-LOCKED STAFF SETTINGS ═══ -->
+<div class="modal" id="lockModal" hidden>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Board settings">
+
+    <div class="step" id="pinStep">
+      <h4>Staff Access</h4>
+      <div class="sub">Enter 4-digit PIN</div>
+      <div class="dots" id="pinDots"><i></i><i></i><i></i><i></i></div>
+      <div class="pad">
+        <button type="button" data-d="1">1</button>
+        <button type="button" data-d="2">2</button>
+        <button type="button" data-d="3">3</button>
+        <button type="button" data-d="4">4</button>
+        <button type="button" data-d="5">5</button>
+        <button type="button" data-d="6">6</button>
+        <button type="button" data-d="7">7</button>
+        <button type="button" data-d="8">8</button>
+        <button type="button" data-d="9">9</button>
+        <button type="button" class="k-act" data-act="clear">Clear</button>
+        <button type="button" data-d="0">0</button>
+        <button type="button" class="k-act" data-act="back">&#9003;</button>
+      </div>
+      <div class="err" id="pinErr">Wrong PIN &mdash; try again</div>
+      <button type="button" class="ghost" data-act="close">Cancel</button>
+    </div>
+
+    <div class="step" id="setStep" hidden>
+      <h4>Board Settings</h4>
+      <div class="sub">Staff only</div>
+      <div class="opt">
+        <span class="lab">Half-Off Event<small>Half price on 1-month packages &amp; free enrollment</small></span>
+        <div class="sw promo-toggle" id="promoToggle" role="switch" aria-checked="false" tabindex="0"><span class="pill"></span></div>
+      </div>
+      <div class="opt">
+        <span class="lab">Edit Mode<small>Click any text on the board to change it</small></span>
+        <div class="btn" id="editBtn" tabindex="0">&#9998; Edit</div>
+      </div>
+      <button type="button" class="ghost" data-act="close">Done</button>
+    </div>
+
+  </div>
+</div>
 
 <script>
 /* ── Rotating equipment carousels (2 at a time) ── */
@@ -512,6 +633,63 @@ body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45
   t.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); t.click(); } });
 })();
 
+/* ── PIN-locked settings sheet ── */
+(function(){
+  var PIN = '4048';
+  var modal   = document.getElementById('lockModal');
+  var sheet   = document.getElementById('sheet');
+  var pinStep = document.getElementById('pinStep');
+  var setStep = document.getElementById('setStep');
+  var dots    = document.getElementById('pinDots');
+  var err     = document.getElementById('pinErr');
+  var buf = '';
+
+  function paint(){
+    for(var i=0;i<dots.children.length;i++){
+      dots.children[i].classList.toggle('on', i < buf.length);
+    }
+  }
+  function reset(){ buf=''; paint(); err.classList.remove('show'); pinStep.hidden=false; setStep.hidden=true; }
+  function open(){ modal.hidden=false; reset(); }
+  function close(){ modal.hidden=true; reset(); }
+  function clear(){ buf=''; paint(); err.classList.remove('show'); }
+  function check(){
+    if(buf === PIN){ pinStep.hidden=true; setStep.hidden=false; return; }
+    err.classList.add('show');
+    sheet.classList.add('shake');
+    setTimeout(function(){ sheet.classList.remove('shake'); buf=''; paint(); }, 400);
+  }
+  function push(d){
+    if(buf.length >= 4) return;
+    err.classList.remove('show');
+    buf += d; paint();
+    if(buf.length === 4) setTimeout(check, 130);
+  }
+
+  document.getElementById('gearBtn').addEventListener('click', open);
+
+  modal.addEventListener('click', function(e){
+    if(e.target === modal){ close(); return; }
+    var b = e.target.closest ? e.target.closest('button') : null;
+    if(!b) return;
+    if(b.dataset.d) push(b.dataset.d);
+    else if(b.dataset.act === 'back'){ buf = buf.slice(0,-1); paint(); err.classList.remove('show'); }
+    else if(b.dataset.act === 'clear') clear();
+    else if(b.dataset.act === 'close') close();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(modal.hidden) return;
+    if(e.key === 'Escape'){ close(); return; }
+    if(!setStep.hidden) return;
+    if(/^[0-9]$/.test(e.key)){ e.preventDefault(); push(e.key); }
+    else if(e.key === 'Backspace'){ e.preventDefault(); buf = buf.slice(0,-1); paint(); }
+  });
+
+  /* the edit-mode module closes the sheet so the board is clickable */
+  window.closeSettings = close;
+})();
+
 /* ── Edit mode ── */
 (function(){
   var editBtn = document.getElementById('editBtn');
@@ -523,7 +701,12 @@ body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45
     });
     editBtn.innerHTML = on ? '&#10003; Done' : '&#9998; Edit';
   }
-  editBtn.addEventListener('click', function(){ setEditing(!document.body.classList.contains('editing')); });
+  editBtn.addEventListener('click', function(){
+    var on = !document.body.classList.contains('editing');
+    setEditing(on);
+    if(on && window.closeSettings) window.closeSettings();
+  });
+  document.getElementById('doneBtn').addEventListener('click', function(){ setEditing(false); });
   document.addEventListener('input', function(e){
     var el = e.target.closest ? e.target.closest('.px') : null;
     if(!el) return;
@@ -536,6 +719,10 @@ body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45
     var clone = document.documentElement.cloneNode(true);
     clone.querySelectorAll('[contenteditable]').forEach(function(el){ el.removeAttribute('contenteditable'); });
     var cb = clone.querySelector('body'); cb.classList.remove('editing'); cb.classList.remove('promo');
+    var cModal = clone.querySelector('#lockModal'); if(cModal) cModal.setAttribute('hidden','');
+    var cPin = clone.querySelector('#pinStep');     if(cPin) cPin.removeAttribute('hidden');
+    var cSet = clone.querySelector('#setStep');     if(cSet) cSet.setAttribute('hidden','');
+    clone.querySelectorAll('#pinDots i').forEach(function(d){ d.classList.remove('on'); });
     clone.querySelectorAll('.px').forEach(function(el){ el.textContent = el.dataset.normal; });
     var html = '<!DOCTYPE html>\n' + clone.outerHTML;
     var blob = new Blob([html], {type:'text/html'});
