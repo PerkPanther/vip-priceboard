@@ -259,6 +259,9 @@ body.promo .card .m-start{background:linear-gradient(90deg,var(--promo),#ff5c7d)
 }
 .reg::before{content:"reg. "}
 body.promo .reg{text-decoration:line-through}
+.promo-only{display:none}
+body.promo .promo-only{display:inline}
+body.promo .row.combo .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45), 0 3px 8px rgba(0,0,0,.5)}
 .sale-tag{
   display:none;font-size:11px;font-weight:900;letter-spacing:.1em;
   color:#fff;background:var(--promo);border-radius:4px;padding:2px 5px;margin-right:6px;
@@ -458,7 +461,7 @@ body.promo .row.hi .v{color:var(--promo);text-shadow:0 0 18px rgba(255,45,85,.45
           <div class="row hi"><span class="k"><span class="sale-tag">&frac12; OFF</span><span class="ed">1 Month Unlimited</span></span>
             <span class="v"><span class="reg ed">$139</span><span class="px ed" data-normal="$89" data-promo="$69.50">$89</span></span></div>
           <div class="row-gap"></div>
-          <div class="row combo"><span class="k"><span class="ed">Single Visit</span><span class="sub-k ed">then $22 ea. next 30 days</span></span><span class="v ed">$35</span></div>
+          <div class="row combo"><span class="k"><span class="sale-tag">&frac12; OFF</span><span class="ed">Single Visit</span><span class="sub-k ed">then $22 ea. next 30 days</span></span><span class="v"><span class="reg promo-only ed">$35</span><span class="px ed" data-normal="$35" data-promo="$17.50">$35</span></span></div>
           <div class="row"><span class="k ed">Buy 2 Visits, Get 1 Free</span><span class="v ed">$70</span></div>
         </div>
         <div class="p-foot ed">Month includes 1 FREE spray tan &mdash; <b>$20</b> each additional</div>
